@@ -83,7 +83,7 @@ kotlin {
 
 
 android {
-    namespace = "com.artemissoftware.core-network"
+    namespace = "com.artemissoftware.features.search.data"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
@@ -114,7 +114,7 @@ compose.desktop {
 
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "com.artemissoftware.core-network"
+            packageName = "com.artemissoftware.features.search.data"
             packageVersion = "1.0.0"
         }
     }
