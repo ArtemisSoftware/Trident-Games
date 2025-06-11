@@ -34,3 +34,4 @@ plugins {
 
 include(":composeApp")
 include(":core-database")
+include(":core-network")
