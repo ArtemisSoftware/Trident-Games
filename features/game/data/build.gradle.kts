@@ -7,7 +7,6 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
-//    alias(libs.plugins.sql.delight)
 }
 
 kotlin {
@@ -37,9 +36,10 @@ kotlin {
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
-            //implementation(libs.sql.delight.android)
         }
         commonMain.dependencies {
+
+            implementation(projects.coreNetwork)
 
             implementation(compose.runtime)
             implementation(compose.foundation)
@@ -50,9 +50,6 @@ kotlin {
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtimeCompose)
 
-//            implementation(libs.sql.delight.common)
-//            api(libs.sql.delight.common.coroutines)
-//
 //            implementation(libs.koin.core)
 
         }
@@ -60,26 +57,13 @@ kotlin {
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
             implementation(libs.kotlinx.coroutinesSwing)
-
-//            implementation(libs.sql.delight.desktop)
-
         }
 
         iosMain.dependencies {
-//            implementation(libs.sql.delight.ios)
+
         }
     }
 }
-
-//sqldelight{
-//    databases{
-//        create("AppDatabase"){
-//            packageName.set("gaur.himanshu.coreDatabase")
-//            srcDirs("src/commonMain/sqldelight")
-//        }
-//    }
-//    linkSqlite = true
-//}
 
 
 android {
