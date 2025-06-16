@@ -41,6 +41,8 @@ kotlin {
         }
         commonMain.dependencies {
 
+            implementation(projects.features.game.domain)
+
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material3)
@@ -50,10 +52,7 @@ kotlin {
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtimeCompose)
 
-//            implementation(libs.sql.delight.common)
-//            api(libs.sql.delight.common.coroutines)
-//
-//            implementation(libs.koin.core)
+            implementation(libs.koin.compose.viewmodel)
 
         }
 
