@@ -7,7 +7,6 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
-//    alias(libs.plugins.sql.delight)
 }
 
 kotlin {
@@ -24,8 +23,8 @@ kotlin {
         iosSimulatorArm64()
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
-//            baseName = "ComposeApp"
-//            isStatic = true
+            baseName = "ComposeApp"
+            isStatic = true
         }
     }
 
@@ -52,33 +51,24 @@ kotlin {
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtimeCompose)
 
-            implementation(libs.koin.compose.viewmodel)
+            implementation(libs.material.icons.extended)
 
+            implementation(libs.koin.compose.viewmodel)
+            implementation(libs.coil)
+            implementation(libs.coil.ktor)
         }
 
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
             implementation(libs.kotlinx.coroutinesSwing)
-
-//            implementation(libs.sql.delight.desktop)
-
         }
 
         iosMain.dependencies {
-//            implementation(libs.sql.delight.ios)
+
         }
     }
 }
 
-//sqldelight{
-//    databases{
-//        create("AppDatabase"){
-//            packageName.set("gaur.himanshu.coreDatabase")
-//            srcDirs("src/commonMain/sqldelight")
-//        }
-//    }
-//    linkSqlite = true
-//}
 
 
 android {
