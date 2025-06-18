@@ -1,8 +1,8 @@
 package com.artemissoftware.tridentgames.di
 
-import com.artemissoftware.corenetwork.di.networkModule
-import com.artemissoftware.data.di.gameDataModule
-import com.artemissoftware.presentation.di.gamePresentationModule
+import com.artemissoftware.network.di.networkModule
+import com.artemissoftware.game.data.di.gameDataModule
+import com.artemissoftware.game.presentation.di.gamePresentationModule
 import org.koin.core.KoinApplication
 import org.koin.core.context.startKoin
 

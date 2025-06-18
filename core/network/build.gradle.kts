@@ -4,10 +4,10 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
-    alias(libs.plugins.androidApplication)
+    alias(libs.plugins.androidLibrary)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
-    alias(libs.plugins.composeHotReload)
+    alias(libs.plugins.kotlinx.serialization)
 }
 
 kotlin {
@@ -17,43 +17,30 @@ kotlin {
             jvmTarget.set(JvmTarget.JVM_11)
         }
     }
-    
+
     listOf(
         iosX64(),
         iosArm64(),
         iosSimulatorArm64()
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
-            baseName = "ComposeApp"
-            isStatic = true
+//            baseName = "ComposeApp"
+//            isStatic = true
         }
     }
-    
+
     jvm("desktop")
-    
+
     sourceSets {
         val desktopMain by getting
-        
+
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
+
+            implementation(libs.ktor.client.android)
         }
         commonMain.dependencies {
-
-            implementation(projects.core.network)
-            implementation(projects.core.database)
-
-            implementation(projects.features.search.data)
-            implementation(projects.features.search.domain)
-            implementation(projects.features.search.presentation)
-
-            implementation(projects.features.favorite.data)
-            implementation(projects.features.favorite.domain)
-            implementation(projects.features.favorite.presentation)
-
-            implementation(projects.features.game.data)
-            implementation(projects.features.game.domain)
-            implementation(projects.features.game.presentation)
 
             implementation(compose.runtime)
             implementation(compose.foundation)
@@ -64,30 +51,35 @@ kotlin {
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtimeCompose)
 
-            implementation(libs.navigation.compose)
+            implementation(libs.kotlinx.serialization)
+
+            implementation(libs.ktor.client.core)
+            implementation(libs.ktor.client.content.negotiation)
+            implementation(libs.ktor.serialization.kotlinx.json)
 
             implementation(libs.koin.core)
         }
-        commonTest.dependencies {
-            implementation(libs.kotlin.test)
-        }
+
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
             implementation(libs.kotlinx.coroutinesSwing)
+
+            implementation(libs.ktor.client.desktop)
+        }
+
+        iosMain.dependencies {
+            implementation(libs.ktor.client.ios)
         }
     }
 }
 
+
 android {
-    namespace = "com.artemissoftware.tridentgames"
+    namespace = "com.artemissoftware.core.network"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
-        applicationId = "com.artemissoftware.tridentgames"
         minSdk = libs.versions.android.minSdk.get().toInt()
-        targetSdk = libs.versions.android.targetSdk.get().toInt()
-        versionCode = 1
-        versionName = "1.0"
     }
     packaging {
         resources {
@@ -111,11 +103,10 @@ dependencies {
 
 compose.desktop {
     application {
-        mainClass = "com.artemissoftware.tridentgames.MainKt"
 
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "com.artemissoftware.tridentgames"
+            packageName = "com.artemissoftware.core.network"
             packageVersion = "1.0.0"
         }
     }

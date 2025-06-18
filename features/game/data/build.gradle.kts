@@ -39,7 +39,7 @@ kotlin {
         }
         commonMain.dependencies {
 
-            implementation(projects.coreNetwork)
+            implementation(projects.core.network)
             implementation(projects.features.game.domain)
 
             implementation(compose.runtime)
@@ -51,7 +51,7 @@ kotlin {
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtimeCompose)
 
-//            implementation(libs.koin.core)
+            implementation(libs.koin.core)
 
         }
 
