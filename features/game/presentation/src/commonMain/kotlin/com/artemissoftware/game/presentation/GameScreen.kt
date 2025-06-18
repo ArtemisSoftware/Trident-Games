@@ -85,7 +85,7 @@ private fun GameContent(
                 )
             )
         }
-    ) {
+    ) { innerPadding ->
 
         if (state.isLoading) {
             Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
@@ -99,7 +99,8 @@ private fun GameContent(
             }
         }
 
-        LazyColumn(modifier = modifier.fillMaxSize()) {
+        LazyColumn(modifier = modifier.fillMaxSize()
+            .padding(innerPadding)) {
             items(state.data) {
                 Card(
                     modifier = Modifier.padding(12.dp).fillMaxWidth().height(350.dp)
