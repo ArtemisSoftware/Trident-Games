@@ -56,7 +56,6 @@ kotlin {
             implementation(libs.material.icons.extended)
 
             implementation(libs.koin.compose.viewmodel)
-
             implementation(libs.navigation.compose)
 
             implementation(libs.coil)
