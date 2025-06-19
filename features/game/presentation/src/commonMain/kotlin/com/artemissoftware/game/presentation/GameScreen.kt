@@ -40,8 +40,8 @@ import org.koin.compose.viewmodel.koinViewModel
 fun GameScreen(
     modifier: Modifier = Modifier,
     onFavoriteClick: () -> Unit,
-    onSearchClick:()->Unit,
-    onClick:(Int)-> Unit,
+    onSearchClick: ()->Unit,
+    onClick: (Int)-> Unit,
     viewModel: GameViewModel = koinViewModel<GameViewModel>()
 
 ) {

@@ -1,11 +1,12 @@
 package com.artemissoftware.tridentgames.navigation
 
 import androidx.compose.runtime.Composable
-import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
-import com.artemissoftware.game.presentation.GameDest
-import com.artemissoftware.game.presentation.gameNavGraph
+import com.artemissoftware.game.presentation.navigation.GameDest
+import com.artemissoftware.game.presentation.navigation.gameNavGraph
+import com.artemissoftware.search.presentation.navigation.SearchDest
+import com.artemissoftware.search.presentation.navigation.searchNavGraph
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
@@ -20,6 +21,13 @@ fun RootNavGraph(
     ) {
 
         gameNavGraph(
+            navController = navHostController,
+            onSearchClick = {
+                navHostController.navigate(SearchDest.Search.route)
+            }
+        )
+
+        searchNavGraph(
             navController = navHostController
         )
 //        listOf(

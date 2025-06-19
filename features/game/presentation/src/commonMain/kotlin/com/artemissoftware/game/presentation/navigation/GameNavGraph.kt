@@ -1,12 +1,14 @@
-package com.artemissoftware.game.presentation
+package com.artemissoftware.game.presentation.navigation
 
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
+import com.artemissoftware.game.presentation.GameScreen
 
 fun NavGraphBuilder.gameNavGraph(
-    navController: NavHostController
+    navController: NavHostController,
+    onSearchClick:()->Unit,
 ) {
 
     navigation(
@@ -16,7 +18,7 @@ fun NavGraphBuilder.gameNavGraph(
         composable(route = GameDest.Game.route) {
             GameScreen(
                 onFavoriteClick = {},
-                onSearchClick = {},
+                onSearchClick = onSearchClick,
                 onClick = {},
             )
         }
