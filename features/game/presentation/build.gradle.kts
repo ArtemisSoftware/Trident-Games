@@ -40,6 +40,8 @@ kotlin {
         }
         commonMain.dependencies {
 
+            implementation(projects.core.domain)
+
             implementation(projects.features.game.domain)
 
             implementation(compose.runtime)

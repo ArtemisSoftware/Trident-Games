@@ -1,8 +1,8 @@
 package com.artemissoftware.game.data.repository
 
+import com.artemissoftware.data.mapper.toGames
+import com.artemissoftware.domain.models.Game
 import com.artemissoftware.network.source.RawgApiSource
-import com.artemissoftware.game.data.mapper.toGames
-import com.artemissoftware.game.domain.models.Game
 import com.artemissoftware.game.domain.repository.GameRepository
 
 class GameRepositoryImpl(

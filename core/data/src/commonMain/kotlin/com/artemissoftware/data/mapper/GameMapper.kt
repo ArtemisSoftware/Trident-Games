@@ -1,10 +1,10 @@
-package com.artemissoftware.game.data.mapper
+package com.artemissoftware.data.mapper
 
+import com.artemissoftware.domain.models.Game
 import com.artemissoftware.network.dto.GameDto
 import com.artemissoftware.network.dto.GameListDto
-import com.artemissoftware.game.domain.models.Game
 
-internal fun GameListDto.toGames(): List<Game> {
+fun GameListDto.toGames(): List<Game> {
     return this.games.map { it.toGame() }
 }
 

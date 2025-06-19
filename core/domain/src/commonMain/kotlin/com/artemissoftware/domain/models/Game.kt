@@ -1,4 +1,4 @@
-package com.artemissoftware.game.domain.models
+package com.artemissoftware.domain.models
 
 data class Game(
     val id: Int,

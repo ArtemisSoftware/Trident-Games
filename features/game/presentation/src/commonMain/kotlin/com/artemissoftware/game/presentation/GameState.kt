@@ -1,6 +1,6 @@
 package com.artemissoftware.game.presentation
 
-import com.artemissoftware.game.domain.models.Game
+import com.artemissoftware.domain.models.Game
 
 data class GameState(
     val isLoading: Boolean = false,

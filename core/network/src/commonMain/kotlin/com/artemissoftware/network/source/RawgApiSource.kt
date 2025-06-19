@@ -25,4 +25,18 @@ class RawgApiSource(
             Result.failure(e)
         }
     }
+
+    suspend fun search(query: String): Result<GameListDto> {
+        return try {
+            val response = httpClient.get("api/games") {
+                url {
+                    parameter("key", "1abb1867f52548a4aa9f54dd4946af2f")
+                    parameter("search", query)
+                }
+            }.body<GameListDto>()
+            Result.success(response)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
 }

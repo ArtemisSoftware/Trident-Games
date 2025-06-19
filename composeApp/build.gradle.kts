@@ -42,6 +42,8 @@ kotlin {
 
             implementation(projects.core.network)
             implementation(projects.core.database)
+            implementation(projects.core.data)
+            implementation(projects.core.domain)
 
             implementation(projects.features.search.data)
             implementation(projects.features.search.domain)
