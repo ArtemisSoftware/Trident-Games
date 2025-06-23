@@ -5,39 +5,40 @@ import com.artemissoftware.game.domain.models.GameDetails
 import com.artemissoftware.game.domain.models.Platform
 import com.artemissoftware.game.domain.models.Store
 import com.artemissoftware.game.domain.models.Tag
+import com.artemissoftware.network.dto.GameDetailDto
 
-fun GameDetails.toGameDetails(): GameDetails {
+fun GameDetailDto.toGameDetails(): GameDetails {
     return GameDetails(
         name = name,
         id = id,
-        description = description,
+        description = descriptionRaw,
         backgroundImage = backgroundImage,
-        additionalImage = additionalImage,
+        additionalImage = backgroundImageAdditional,
         platforms = platforms.map {
             Platform(
-                name = it.name,
-                image = it.image
+                name = it.platform.name,
+                image = it.platform.imageBackground
             )
         },
         stores = stores.map {
             Store(
-                name = it.name,
-                image = it.image,
-                gameCount = it.gameCount,
-                domain = it.domain
+                name = it.store.name,
+                image = it.store.imageBackground,
+                gameCount = it.store.gamesCount,
+                domain = it.store.domain
             )
         },
         developers = developers.map {
             Developer(
                 name = it.name,
-                image = it.image,
-                gameCount = it.gameCount
+                image = it.imageBackground,
+                gameCount = it.gamesCount
             )
         },
         tags = tags.map {
             Tag(
                 name = it.name,
-                image = it.image
+                image = it.imageBackground
             )
         }
     )
