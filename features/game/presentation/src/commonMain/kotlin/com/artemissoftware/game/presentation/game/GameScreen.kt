@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterial3Api::class)
 
-package com.artemissoftware.game.presentation
+package com.artemissoftware.game.presentation.game
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable

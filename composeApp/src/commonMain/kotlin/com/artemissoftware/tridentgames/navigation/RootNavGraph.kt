@@ -28,7 +28,10 @@ fun RootNavGraph(
         )
 
         searchNavGraph(
-            navController = navHostController
+            navController = navHostController,
+            navigateToDetail = {
+                navHostController.navigate(GameDest.Details.getRoute(it))
+            }
         )
 //        listOf(
 //            GameNavGraph,

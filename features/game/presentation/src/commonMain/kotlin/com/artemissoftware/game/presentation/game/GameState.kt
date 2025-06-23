@@ -1,4 +1,4 @@
-package com.artemissoftware.game.presentation
+package com.artemissoftware.game.presentation.game
 
 import com.artemissoftware.domain.models.Game
 

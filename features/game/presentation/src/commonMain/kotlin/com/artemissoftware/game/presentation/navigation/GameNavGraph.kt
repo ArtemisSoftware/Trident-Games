@@ -4,7 +4,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
-import com.artemissoftware.game.presentation.GameScreen
+import com.artemissoftware.game.presentation.game.GameScreen
 
 fun NavGraphBuilder.gameNavGraph(
     navController: NavHostController,

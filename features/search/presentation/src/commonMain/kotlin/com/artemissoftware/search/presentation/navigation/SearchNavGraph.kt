@@ -7,7 +7,8 @@ import androidx.navigation.navigation
 import com.artemissoftware.search.presentation.SearchScreen
 
 fun NavGraphBuilder.searchNavGraph(
-    navController: NavHostController
+    navController: NavHostController,
+    navigateToDetail: (Int) -> Unit
 ) {
 
     navigation(
@@ -17,10 +18,9 @@ fun NavGraphBuilder.searchNavGraph(
         composable(route = SearchDest.Search.route) {
             SearchScreen(
                 onBackClick = { navController.popBackStack() },
-                onClick = {},
+                onClick = navigateToDetail,
             )
         }
-
     }
 }
 
