@@ -4,6 +4,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
+import com.artemissoftware.game.presentation.details.DetailsScreen
 import com.artemissoftware.game.presentation.game.GameScreen
 
 fun NavGraphBuilder.gameNavGraph(
@@ -19,7 +20,21 @@ fun NavGraphBuilder.gameNavGraph(
             GameScreen(
                 onFavoriteClick = {},
                 onSearchClick = onSearchClick,
-                onClick = {},
+                onClick = {
+                    navController.navigate(GameDest.Details.getRoute(it))
+                },
+            )
+        }
+
+        composable(route = GameDest.Details.route) {
+
+            val id = it.arguments?.getString("id")
+
+            DetailsScreen(
+                id = id.toString(),
+                onBackClick = {
+                    navController.popBackStack()
+                }
             )
         }
 
