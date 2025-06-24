@@ -7,15 +7,11 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
-//    alias(libs.plugins.sql.delight)
+    alias(libs.plugins.sql.delight)
 }
 
 kotlin {
     androidTarget {
-        @OptIn(ExperimentalKotlinGradlePluginApi::class)
-        compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_11)
-        }
     }
 
     listOf(
@@ -37,7 +33,7 @@ kotlin {
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
-            //implementation(libs.sql.delight.android)
+            implementation(libs.sql.delight.android)
         }
         commonMain.dependencies {
 
@@ -50,10 +46,10 @@ kotlin {
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtimeCompose)
 
-//            implementation(libs.sql.delight.common)
-//            api(libs.sql.delight.common.coroutines)
-//
-//            implementation(libs.koin.core)
+            implementation(libs.sql.delight.common)
+            api(libs.sql.delight.common.coroutines)
+
+            implementation(libs.koin.core)
 
         }
 
@@ -61,12 +57,11 @@ kotlin {
             implementation(compose.desktop.currentOs)
             implementation(libs.kotlinx.coroutinesSwing)
 
-//            implementation(libs.sql.delight.desktop)
-
+            implementation(libs.sql.delight.desktop)
         }
 
         iosMain.dependencies {
-//            implementation(libs.sql.delight.ios)
+            implementation(libs.sql.delight.ios)
         }
     }
 }
