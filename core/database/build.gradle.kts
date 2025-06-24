@@ -66,15 +66,15 @@ kotlin {
     }
 }
 
-//sqldelight{
-//    databases{
-//        create("AppDatabase"){
-//            packageName.set("gaur.himanshu.coreDatabase")
-//            srcDirs("src/commonMain/sqldelight")
-//        }
-//    }
-//    linkSqlite = true
-//}
+sqldelight{
+    databases{
+        create("TridentGamesDb"){
+            packageName.set("com.artemissoftware.database")
+            srcDirs("src/commonMain/sqldelight")
+        }
+    }
+    linkSqlite = true
+}
 
 
 android {
