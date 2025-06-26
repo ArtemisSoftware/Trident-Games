@@ -7,7 +7,6 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
-//    alias(libs.plugins.sql.delight)
 }
 
 kotlin {
@@ -37,9 +36,15 @@ kotlin {
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
-            //implementation(libs.sql.delight.android)
         }
         commonMain.dependencies {
+
+            implementation(projects.core.database)
+
+            implementation(projects.core.data)
+            implementation(projects.core.domain)
+
+            implementation(projects.features.favorite.domain)
 
             implementation(compose.runtime)
             implementation(compose.foundation)
@@ -50,10 +55,7 @@ kotlin {
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtimeCompose)
 
-//            implementation(libs.sql.delight.common)
-//            api(libs.sql.delight.common.coroutines)
-//
-//            implementation(libs.koin.core)
+            implementation(libs.koin.core)
 
         }
 
