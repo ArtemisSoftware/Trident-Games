@@ -37,13 +37,12 @@ internal class DetailsViewModel(
         }
     }
 
+    fun save(id: Int, image: String, name: String) = viewModelScope.launch {
+        gameRepository.save(id, image, name)
+    }
 
-//    fun save(id: Int, image: String, name: String) = viewModelScope.launch {
-//        saveGameUseCase.invoke(id, image, name)
-//    }
-//
-//    fun delete(id: Int) = viewModelScope.launch {
-//        deleteUseCase.invoke(id)
-//    }
+    fun delete(id: Int) = viewModelScope.launch {
+        gameRepository.delete(id)
+    }
 
 }

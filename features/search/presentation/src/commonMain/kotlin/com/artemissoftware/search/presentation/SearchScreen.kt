@@ -94,7 +94,7 @@ private fun SearchContent(
                 )
             }
         }
-    ) {
+    ) { innerPadding ->
 
         if (state.isLoading) {
             Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
@@ -111,7 +111,9 @@ private fun SearchContent(
 
         LazyVerticalGrid(
             columns = GridCells.Fixed(2),
-            modifier = Modifier.fillMaxSize()
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(innerPadding)
         ) {
             items(state.games) { item ->
                 AsyncImage(

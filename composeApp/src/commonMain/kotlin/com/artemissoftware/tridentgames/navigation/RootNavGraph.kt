@@ -5,6 +5,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import com.artemissoftware.game.presentation.navigation.GameDest
 import com.artemissoftware.game.presentation.navigation.gameNavGraph
+import com.artemissoftware.navigation.FavoriteDest
+import com.artemissoftware.navigation.favoriteNavGraph
 import com.artemissoftware.search.presentation.navigation.SearchDest
 import com.artemissoftware.search.presentation.navigation.searchNavGraph
 import org.jetbrains.compose.ui.tooling.preview.Preview
@@ -24,6 +26,9 @@ fun RootNavGraph(
             navController = navHostController,
             onSearchClick = {
                 navHostController.navigate(SearchDest.Search.route)
+            },
+            navigateToFavorite = {
+                navHostController.navigate(FavoriteDest.Favorite.route)
             }
         )
 
@@ -33,16 +38,12 @@ fun RootNavGraph(
                 navHostController.navigate(GameDest.Details.getRoute(it))
             }
         )
-//        listOf(
-//            GameNavGraph,
-//            SearchNavGraph,
-//            FavoriteNavGraph
-//        ).forEach {
-//            it.build(
-//                modifier = Modifier.padding(top = bottomPadding).fillMaxSize(),
-//                navHostController = navHostController,
-//                navGraphBuilder = this
-//            )
-//        }
+
+        favoriteNavGraph(
+            navController = navHostController,
+            navigateToDetails = {
+                navHostController.navigate(GameDest.Details.getRoute(it))
+            }
+        )
     }
 }
