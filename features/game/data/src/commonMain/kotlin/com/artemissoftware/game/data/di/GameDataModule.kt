@@ -5,5 +5,5 @@ import com.artemissoftware.game.domain.repository.GameRepository
 import org.koin.dsl.module
 
 val gameDataModule = module {
-    factory<GameRepository> { GameRepositoryImpl(rawgApiSource = get()) }
+    factory<GameRepository> { GameRepositoryImpl(rawgApiSource = get(), favoriteDao = get()) }
 }

@@ -9,7 +9,8 @@ import com.artemissoftware.game.presentation.game.GameScreen
 
 fun NavGraphBuilder.gameNavGraph(
     navController: NavHostController,
-    onSearchClick:()->Unit,
+    onSearchClick:() -> Unit,
+    navigateToFavorite:() -> Unit
 ) {
 
     navigation(
@@ -18,7 +19,7 @@ fun NavGraphBuilder.gameNavGraph(
     ) {
         composable(route = GameDest.Game.route) {
             GameScreen(
-                onFavoriteClick = {},
+                onFavoriteClick = navigateToFavorite,
                 onSearchClick = onSearchClick,
                 onClick = {
                     navController.navigate(GameDest.Details.getRoute(it))

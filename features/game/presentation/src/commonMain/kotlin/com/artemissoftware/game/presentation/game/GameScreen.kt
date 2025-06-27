@@ -99,8 +99,10 @@ private fun GameContent(
             }
         }
 
-        LazyColumn(modifier = modifier.fillMaxSize()
-            .padding(innerPadding)) {
+        LazyColumn(
+            modifier = modifier.fillMaxSize()
+                .padding(innerPadding)
+        ) {
             items(state.data) {
                 Card(
                     modifier = Modifier.padding(12.dp).fillMaxWidth().height(350.dp)
