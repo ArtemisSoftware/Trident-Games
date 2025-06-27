@@ -44,12 +44,12 @@ class SearchViewModel(private val searchRepository: SearchRepository) : ViewMode
             result
                 .onSuccess { games ->
                     update {
-                        it.copy(games = games, isLoading = true)
+                        it.copy(games = games, isLoading = false)
                     }
                 }
                 .onFailure { error ->
                     update {
-                        it.copy(error = error.message.toString(), isLoading = true)
+                        it.copy(error = error.message.toString(), isLoading = false)
                     }
                 }
         }

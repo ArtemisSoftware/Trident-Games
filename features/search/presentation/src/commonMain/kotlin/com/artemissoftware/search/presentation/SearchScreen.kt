@@ -3,6 +3,7 @@ package com.artemissoftware.search.presentation
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -64,36 +65,7 @@ private fun SearchContent(
 
     Scaffold(
         modifier = Modifier.fillMaxSize(),
-        topBar = {
-            Row(
-                modifier = Modifier
-                    .padding(4.dp)
-                    .fillMaxWidth()
-            ) {
-                IconButton(onClick = onBackClick) {
-                    Icon(
-                        imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                        contentDescription = null
-                    )
-                }
 
-                Spacer(modifier = Modifier.width(8.dp))
-
-                TextField(
-                    value = state.query,
-                    onValueChange = onQueryChange,
-                    singleLine = true,
-                    modifier = Modifier.fillMaxWidth(),
-                    colors = TextFieldDefaults.colors(
-                        unfocusedIndicatorColor = Color.Transparent,
-                        focusedIndicatorColor = Color.Transparent
-                    ),
-                    placeholder = {
-                        Text("Search here...")
-                    }
-                )
-            }
-        }
     ) { innerPadding ->
 
         if (state.isLoading) {
@@ -109,28 +81,66 @@ private fun SearchContent(
         }
 
 
-        LazyVerticalGrid(
-            columns = GridCells.Fixed(2),
+        Column(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
         ) {
-            items(state.games) { item ->
-                AsyncImage(
-                    model = item.imageUrl,
-                    contentDescription = null,
-                    modifier = Modifier
-                        .padding(12.dp
-                        ).background(
-                            color = Color.Transparent,
-                            shape = RoundedCornerShape(12.dp)
-                        )
-                        .clip(RoundedCornerShape(12.dp))
-                        .height(250.dp)
-                        .clickable { onClick(item.id) },
-                    contentScale = ContentScale.Crop
+
+            Row(
+                modifier = Modifier
+                    .padding(4.dp)
+                    .fillMaxWidth()
+            ) {
+                IconButton(onClick = onBackClick) {
+                    Icon(
+                        imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                        contentDescription = null
+                    )
+                }
+
+                Spacer(modifier = Modifier.width(8.dp))
+
+
+                TextField(
+                    value = state.query,
+                    onValueChange = onQueryChange,
+                    singleLine = true,
+                    modifier = Modifier.fillMaxWidth(),
+                    colors = TextFieldDefaults.colors(
+                        unfocusedIndicatorColor = Color.Transparent,
+                        focusedIndicatorColor = Color.Transparent
+                    ),
+                    placeholder = {
+                        Text("Search here...")
+                    }
                 )
             }
+
+
+            LazyVerticalGrid(
+                columns = GridCells.Fixed(2),
+                modifier = Modifier
+                    .fillMaxWidth()
+            ) {
+                items(state.games) { item ->
+                    AsyncImage(
+                        model = item.imageUrl,
+                        contentDescription = null,
+                        modifier = Modifier
+                            .padding(12.dp
+                            ).background(
+                                color = Color.Transparent,
+                                shape = RoundedCornerShape(12.dp)
+                            )
+                            .clip(RoundedCornerShape(12.dp))
+                            .height(250.dp)
+                            .clickable { onClick(item.id) },
+                        contentScale = ContentScale.Crop
+                    )
+                }
+            }
+
         }
     }
 }

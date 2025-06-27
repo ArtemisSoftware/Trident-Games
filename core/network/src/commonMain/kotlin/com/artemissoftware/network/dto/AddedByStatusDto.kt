@@ -6,15 +6,15 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class AddedByStatusDto(
     @SerialName("beaten")
-    val beaten: Int,
+    val beaten: Int? = 0,
     @SerialName("dropped")
-    val dropped: Int,
+    val dropped: Int? = 0,
     @SerialName("owned")
-    val owned: Int,
+    val owned: Int? = 0,
     @SerialName("playing")
-    val playing: Int,
+    val playing: Int? = 0,
     @SerialName("toplay")
-    val toplay: Int,
+    val toplay: Int? = 0,
     @SerialName("yet")
-    val yet: Int
+    val yet: Int? = 0,
 )

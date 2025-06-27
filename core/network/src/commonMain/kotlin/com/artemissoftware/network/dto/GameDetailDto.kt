@@ -30,7 +30,7 @@ data class GameDetailDto(
     @SerialName("dominant_color")
     val dominantColor: String,
     @SerialName("esrb_rating")
-    val esrbRating: EsrbRatingDto,
+    val esrbRating: EsrbRatingDto? = null,
     @SerialName("game_series_count")
     val gameSeriesCount: Int,
     @SerialName("genres")
