@@ -39,6 +39,8 @@ kotlin {
         }
         commonMain.dependencies {
 
+
+            implementation(projects.core.database)
             implementation(projects.core.network)
             implementation(projects.core.data)
             implementation(projects.core.domain)

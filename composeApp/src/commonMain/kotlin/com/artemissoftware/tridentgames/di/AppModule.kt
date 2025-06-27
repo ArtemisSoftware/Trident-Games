@@ -1,6 +1,8 @@
 package com.artemissoftware.tridentgames.di
 
 import com.artemissoftware.database.di.getDatabaseModule
+import com.artemissoftware.di.favoritePresentationModule
+import com.artemissoftware.favorite.di.favoriteDataModule
 import com.artemissoftware.network.di.networkModule
 import com.artemissoftware.game.data.di.gameDataModule
 import com.artemissoftware.game.presentation.di.gamePresentationModule
@@ -18,7 +20,9 @@ fun initKoin(koinApplication: ((KoinApplication) -> Unit)? = null) {
             gameDataModule,
             gamePresentationModule,
             searchDataModule,
-            searchPresentationModule
+            searchPresentationModule,
+            favoriteDataModule,
+            favoritePresentationModule
         )
     }
 }

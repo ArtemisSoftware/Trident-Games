@@ -41,7 +41,6 @@ kotlin {
 
             implementation(projects.core.database)
 
-            implementation(projects.core.data)
             implementation(projects.core.domain)
 
             implementation(projects.features.favorite.domain)
@@ -56,32 +55,18 @@ kotlin {
             implementation(libs.androidx.lifecycle.runtimeCompose)
 
             implementation(libs.koin.core)
-
         }
 
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
             implementation(libs.kotlinx.coroutinesSwing)
-
-//            implementation(libs.sql.delight.desktop)
-
         }
 
         iosMain.dependencies {
-//            implementation(libs.sql.delight.ios)
+
         }
     }
 }
-
-//sqldelight{
-//    databases{
-//        create("AppDatabase"){
-//            packageName.set("gaur.himanshu.coreDatabase")
-//            srcDirs("src/commonMain/sqldelight")
-//        }
-//    }
-//    linkSqlite = true
-//}
 
 
 android {

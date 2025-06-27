@@ -52,7 +52,14 @@ kotlin {
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtimeCompose)
 
-            implementation(libs.koin.core)
+
+            implementation(libs.material.icons.extended)
+
+            implementation(libs.koin.compose.viewmodel)
+            implementation(libs.navigation.compose)
+
+            implementation(libs.coil)
+            implementation(libs.coil.ktor)
 
         }
 
